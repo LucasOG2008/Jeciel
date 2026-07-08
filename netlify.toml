@@ -1,0 +1,5 @@
+# Configuração de deploy da Netlify
+# Site estático (HTML/CSS/JS) — não há etapa de build.
+# O conteúdo do site fica na subpasta "site/".
+[build]
+  publish = "site"
