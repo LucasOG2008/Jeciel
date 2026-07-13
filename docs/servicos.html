@@ -8,7 +8,7 @@
 <link rel="icon" href="assets/img/slogo-color.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700;800&family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Lexend:wght@400;500;600;700;800&family=Source+Sans+3:wght@400;500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body>
@@ -16,24 +16,27 @@
 <header class="site-header">
   <nav class="nav wrap" aria-label="Principal">
     <a class="nav__logo" href="index.html" aria-label="JB Cargo — início"><img src="assets/img/logo-color.png" alt="JB Cargo"></a>
-    <button class="nav__toggle" aria-label="Abrir menu" aria-expanded="false"><span></span><span></span><span></span></button>
-    <ul class="nav__links">
+    <button class="nav__toggle" aria-label="Abrir menu" aria-expanded="false" aria-controls="menu"><span></span><span></span><span></span></button>
+    <ul class="nav__links" id="menu">
       <li><a href="index.html">Início</a></li>
       <li><a href="quem-somos.html">Quem Somos</a></li>
       <li><a href="diferenciais.html">Diferenciais</a></li>
-      <li><a href="servicos.html" class="is-active">Serviços</a></li>
+      <li><a href="servicos.html" class="is-active" aria-current="page">Serviços</a></li>
       <li><a href="experiencia.html">Experiência</a></li>
       <li><a href="cobertura.html">Cobertura</a></li>
-      <li class="nav__cta"><a class="btn" href="contato.html">Contato</a></li>
+      <li class="nav__cta"><a class="btn" href="contato.html">Solicitar orçamento</a></li>
     </ul>
   </nav>
 </header>
 
+<main>
 <section class="hero hero--sub">
   <div class="hero__bg"><img src="assets/img/servicos.jpg" alt="Armazém com empilhadeira e paletes"></div>
+  <span class="glow-blob" aria-hidden="true"></span>
+  <div class="grid-bg" aria-hidden="true"></div>
   <div class="wrap">
     <div class="hero__inner">
-      <div class="breadcrumb"><a href="index.html">Início</a> &nbsp;/&nbsp; Serviços</div>
+      <div class="breadcrumb"><a href="index.html">Início</a> <span>/</span> Serviços</div>
       <h1>Nossos <span>Serviços</span></h1>
       <p>Soluções logísticas completas e personalizadas para atender a sua operação de forma eficiente.</p>
     </div>
@@ -42,53 +45,67 @@
 
 <section class="section">
   <div class="wrap grid grid--2">
-    <div>
-      <span class="eyebrow">Especialidades</span>
-      <h2 style="font-size:clamp(1.8rem,4vw,2.6rem);font-weight:800;margin-bottom:10px">Como podemos atender você</h2>
-      <p class="lead" style="margin-bottom:14px">Cada modalidade foi pensada para garantir segurança, agilidade e previsibilidade em toda a cadeia logística.</p>
+    <div class="reveal">
+      <span class="badge">Especialidades</span>
+      <h2 style="font-size:clamp(1.9rem,4vw,2.7rem)">Como podemos atender você</h2>
+      <p class="lead" style="margin:16px 0 28px">Cada modalidade foi pensada para garantir segurança, agilidade e previsibilidade em toda a cadeia logística.</p>
 
       <div class="svc">
         <div class="svc__ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg></div>
         <div><h3>Carga Fechada</h3><p>Transporte de mercadorias para um único destinatário, com <strong>rota e tempo de carga/descarga</strong> previamente definidos.</p></div>
       </div>
-
       <div class="svc">
         <div class="svc__ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 13c3-2 6-2 9 0s6 2 9 0"/><path d="M12 13V4"/><circle cx="12" cy="4" r="1.6" fill="currentColor" stroke="none"/></svg></div>
         <div><h3>Carga Dedicada</h3><p>Serviço <strong>personalizado e exclusivo</strong> para empresas que necessitam de soluções logísticas específicas.</p></div>
       </div>
-
       <div class="svc">
         <div class="svc__ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 12a8 8 0 0 1 13-6.2M20 4v4h-4"/><path d="M20 12a8 8 0 0 1-13 6.2M4 20v-4h4"/></svg></div>
         <div><h3>Logística Reversa</h3><p>Transporte de produtos ou materiais de volta ao <strong>centro de produção</strong>, garantindo a destinação correta de itens retornáveis.</p></div>
       </div>
     </div>
-    <div class="media"><img src="assets/img/diferenciais.jpg" alt="Containers de carga da JB Cargo"></div>
+    <div class="media media--framed reveal" data-delay="1"><img src="assets/img/diferenciais.jpg" alt="Containers de carga da JB Cargo" loading="lazy"></div>
   </div>
 </section>
 
-<section class="section section--soft">
+<section class="section section--tint">
   <div class="wrap">
-    <div class="section-head section-head--center">
-      <span class="eyebrow">Por que a JB Cargo</span>
-      <h2>Do embarque à entrega, sem surpresas</h2>
+    <div class="section-head section-head--center reveal">
+      <span class="badge">Por que a JB Cargo</span>
+      <h2>Do embarque à entrega, <span class="gradient-text">sem surpresas</span></h2>
     </div>
-    <div class="grid grid--3">
-      <div class="card"><h3>Prazos cumpridos</h3><p>Comprometimento total com os prazos acordados e com a segurança da sua mercadoria.</p></div>
-      <div class="card"><h3>Rastreabilidade</h3><p>Informação em tempo real sobre o status da sua carga durante todo o percurso.</p></div>
-      <div class="card"><h3>Atendimento próximo</h3><p>Um time comercial dedicado, pronto para adequar a operação ao seu negócio.</p></div>
+    <div class="bento">
+      <article class="feature feature--wide reveal">
+        <div class="feature__ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.1V12a10 10 0 1 1-5.9-9.1"/><path d="M22 4L12 14.01l-3-3"/></svg></div>
+        <h3>Prazos cumpridos</h3>
+        <p>Comprometimento total com os prazos acordados e com a segurança da sua mercadoria.</p>
+      </article>
+      <article class="feature feature--wide reveal" data-delay="1">
+        <div class="feature__ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 7l9-4 9 4-9 4-9-4z"/><path d="M3 7v10l9 4 9-4V7"/><path d="M12 11v10"/></svg></div>
+        <h3>Rastreabilidade</h3>
+        <p>Informação em tempo real sobre o status da sua carga durante todo o percurso.</p>
+      </article>
+      <article class="feature feature--wide reveal" data-delay="2">
+        <div class="feature__ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/></svg></div>
+        <h3>Atendimento próximo</h3>
+        <p>Um time comercial dedicado, pronto para adequar a operação ao seu negócio.</p>
+      </article>
     </div>
   </div>
 </section>
 
 <section class="cta-band">
-  <div class="wrap">
+  <span class="glow-blob" aria-hidden="true"></span>
+  <span class="glow-blob glow-blob--2" aria-hidden="true"></span>
+  <div class="wrap reveal">
     <h2>Precisa de uma solução sob medida?</h2>
     <p>Monte com a gente o modelo logístico ideal para a sua empresa.</p>
-    <a class="btn" href="contato.html">Solicitar orçamento</a>
+    <div class="hero__actions"><a class="btn btn--lg" href="contato.html">Solicitar orçamento</a></div>
   </div>
 </section>
+</main>
 
 <footer class="site-footer">
+  <span class="glow-blob" aria-hidden="true"></span>
   <div class="wrap">
     <div class="footer-grid">
       <div><img src="assets/img/logo-branco.png" alt="JB Cargo"><p class="fdesc">Armazenagem e distribuição de cargas dedicadas em toda a região metropolitana de São Paulo.</p></div>
