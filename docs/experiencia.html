@@ -8,108 +8,159 @@
 <link rel="icon" href="assets/img/slogo-color.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Lexend:wght@400;500;600;700;800&family=Source+Sans+3:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body>
 
-<header class="site-header">
-  <nav class="nav wrap" aria-label="Principal">
-    <a class="nav__logo" href="index.html" aria-label="JB Cargo — início"><img src="assets/img/logo-color.png" alt="JB Cargo"></a>
-    <button class="nav__toggle" aria-label="Abrir menu" aria-expanded="false" aria-controls="menu"><span></span><span></span><span></span></button>
-    <ul class="nav__links" id="menu">
-      <li><a href="index.html">Início</a></li>
-      <li><a href="quem-somos.html">Quem Somos</a></li>
-      <li><a href="diferenciais.html">Diferenciais</a></li>
-      <li><a href="servicos.html">Serviços</a></li>
-      <li><a href="experiencia.html" class="is-active" aria-current="page">Experiência</a></li>
-      <li><a href="cobertura.html">Cobertura</a></li>
+<div class="route-progress" aria-hidden="true"></div>
+
+<header class="masthead">
+  <div class="topbar" aria-hidden="true">
+    <div class="topbar__in shell">
+      <span class="mono-xs">Armazenagem e Distribuição · Região Metropolitana de São Paulo</span>
+      <span class="mono-xs"><a href="mailto:comercial@jbcargo.com.br">comercial@jbcargo.com.br</a> · <a href="tel:+5511947344475">+55 (11) 94734-4475</a></span>
+    </div>
+  </div>
+  <nav class="nav shell" aria-label="Principal">
+    <a class="brand" href="index.html" aria-label="JB Cargo — início"><img src="assets/img/logo-branco.png" alt="JB Cargo"></a>
+    <button class="burger" aria-label="Abrir menu" aria-expanded="false" aria-controls="menu"><span></span><span></span><span></span></button>
+    <ul class="mainnav" id="menu">
+      <li><a href="index.html" class="navlink">Início</a></li>
+      <li><a href="quem-somos.html" class="navlink">Quem Somos</a></li>
+      <li><a href="diferenciais.html" class="navlink">Diferenciais</a></li>
+      <li><a href="servicos.html" class="navlink">Serviços</a></li>
+      <li><a href="experiencia.html" class="navlink is-active" aria-current="page">Experiência</a></li>
+      <li><a href="cobertura.html" class="navlink">Cobertura</a></li>
       <li class="nav__cta"><a class="btn" href="contato.html">Solicitar orçamento</a></li>
     </ul>
   </nav>
 </header>
 
 <main>
-<section class="hero hero--sub">
-  <div class="hero__bg"><img src="assets/img/experiencia.jpg" alt="Colaborador experiente da JB Cargo em armazém"></div>
-  <span class="glow-blob" aria-hidden="true"></span>
-  <div class="grid-bg" aria-hidden="true"></div>
-  <div class="wrap">
-    <div class="hero__inner">
-      <div class="breadcrumb"><a href="index.html">Início</a> <span>/</span> Experiência</div>
-      <h1>Nossa <span>Experiência</span></h1>
-      <p>Anos de estrada atendendo os segmentos que mais exigem agilidade e confiabilidade.</p>
-    </div>
+<section class="pagehead">
+  <div class="pagehead__media"><img src="assets/img/experiencia.jpg" alt="Colaborador experiente da JB Cargo em armazém" fetchpriority="high"></div>
+  <div class="pagehead__tint" aria-hidden="true"></div>
+  <div class="pagehead__inner shell">
+    <div class="crumb mono-xs"><a href="index.html">Início</a> <span class="sep" aria-hidden="true">/</span> <span>Experiência</span></div>
+    <h1>Nossa <em>Experiência</em></h1>
+    <p class="pagehead__lead">Anos de estrada atendendo os segmentos que mais exigem agilidade e confiabilidade.</p>
+    <div class="pagehead__rule" aria-hidden="true"></div>
   </div>
 </section>
 
+<!-- Onde atuamos -->
 <section class="section">
-  <div class="wrap grid grid--2">
-    <div class="media media--framed reveal"><img src="assets/img/contato.jpg" alt="Entregador da JB Cargo com encomendas" loading="lazy"></div>
+  <div class="shell split">
+    <div class="media reveal">
+      <img src="assets/img/contato.jpg" alt="Entregador da JB Cargo com encomendas" loading="lazy">
+      <span class="media__tag mono-xs">Entrega urbana · alta rotatividade</span>
+    </div>
     <div class="reveal" data-delay="1">
-      <span class="badge">Onde atuamos</span>
-      <h2 style="font-size:clamp(1.9rem,4vw,2.7rem)">Do centro de distribuição à porta do cliente</h2>
-      <p class="lead" style="margin-top:16px">Atendemos todos os segmentos <strong>alimentícios e de bebidas</strong> na carga seca, nas regiões metropolitanas de São Paulo.</p>
+      <div class="eyebrow"><span class="dot" aria-hidden="true"></span><span class="mono">KM 01 · Onde atuamos</span></div>
+      <h2 class="h2">Do centro de distribuição à porta do cliente</h2>
+      <p class="lead" style="margin-top:24px">Atendemos todos os segmentos <strong>alimentícios e de bebidas</strong> na carga seca, nas regiões metropolitanas de São Paulo.</p>
       <p class="lead" style="margin-top:14px">Contamos com larga experiência em entregas para <strong>bares, restaurantes, shoppings, hotéis e redes atacadistas</strong>.</p>
-      <ul class="checks">
-        <li><span class="ck"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6L9 17l-5-5"/></svg></span> Carga seca de alimentos e bebidas</li>
-        <li><span class="ck"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6L9 17l-5-5"/></svg></span> Entregas urbanas de alta rotatividade</li>
-        <li><span class="ck"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6L9 17l-5-5"/></svg></span> Atendimento a grandes redes e pequenos comércios</li>
+      <ul class="ticks" style="margin-top:20px">
+        <li><span class="tk"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg></span> Carga seca de alimentos e bebidas</li>
+        <li><span class="tk"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg></span> Entregas urbanas de alta rotatividade</li>
+        <li><span class="tk"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg></span> Atendimento a grandes redes e pequenos comércios</li>
       </ul>
     </div>
   </div>
 </section>
 
-<section class="section section--tint">
-  <div class="wrap">
-    <div class="section-head section-head--center reveal">
-      <span class="badge">Segmentos atendidos</span>
-      <h2>Quem confia na <span class="gradient-text">JB Cargo</span></h2>
+<!-- Segmentos atendidos — tríptico -->
+<section class="section" style="padding-top:0">
+  <div class="shell">
+    <div class="headline reveal">
+      <div class="eyebrow"><span class="dot" aria-hidden="true"></span><span class="mono">KM 02 · Segmentos atendidos</span></div>
+      <h2 class="h2">Quem confia na <em>JB Cargo</em></h2>
     </div>
-    <div class="bento">
-      <article class="feature feature--wide reveal">
-        <div class="feature__ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 2v6a4 4 0 0 0 8 0V2"/><path d="M10 8v14"/><path d="M18 2c-1.5 0-3 1.5-3 5s1.5 5 3 5v10"/></svg></div>
-        <h3>Bares e Restaurantes</h3>
-        <p>Reposição ágil de insumos e bebidas para o dia a dia da operação.</p>
+    <div class="trip reveal" data-delay="1">
+      <article class="trip__cell">
+        <img src="assets/img/experiencia.jpg" alt="Colaborador em armazém atendendo bares e restaurantes" loading="lazy">
+        <div class="trip__grad" aria-hidden="true"></div>
+        <div class="trip__txt">
+          <span class="mono-xs">SEG-01</span>
+          <h3>Bares e Restaurantes</h3>
+          <p>Reposição ágil de insumos e bebidas para o dia a dia da operação.</p>
+        </div>
       </article>
-      <article class="feature feature--wide reveal" data-delay="1">
-        <div class="feature__ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 21h18"/><path d="M5 21V7l7-4 7 4v14"/><path d="M9 21v-6h6v6"/></svg></div>
-        <h3>Hotéis e Shoppings</h3>
-        <p>Entregas programadas com pontualidade para grandes empreendimentos.</p>
+      <article class="trip__cell">
+        <img src="assets/img/contato.jpg" alt="Entregas programadas para hotéis e shoppings" loading="lazy">
+        <div class="trip__grad" aria-hidden="true"></div>
+        <div class="trip__txt">
+          <span class="mono-xs">SEG-02</span>
+          <h3>Hotéis e Shoppings</h3>
+          <p>Entregas programadas com pontualidade para grandes empreendimentos.</p>
+        </div>
       </article>
-      <article class="feature feature--wide reveal" data-delay="2">
-        <div class="feature__ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 3h18v6H3z"/><path d="M4 9v12h16V9"/><path d="M10 13h4"/></svg></div>
-        <h3>Redes Atacadistas</h3>
-        <p>Distribuição em volume com segurança e previsibilidade de prazos.</p>
+      <article class="trip__cell">
+        <img src="assets/img/servicos.jpg" alt="Distribuição em volume para redes atacadistas" loading="lazy">
+        <div class="trip__grad" aria-hidden="true"></div>
+        <div class="trip__txt">
+          <span class="mono-xs">SEG-03</span>
+          <h3>Redes Atacadistas</h3>
+          <p>Distribuição em volume com segurança e previsibilidade de prazos.</p>
+        </div>
       </article>
     </div>
+    <p class="trip__hint mono-xs" aria-hidden="true">Passe o mouse · o duotone revela a cor real</p>
   </div>
 </section>
 
-<section class="cta-band">
-  <span class="glow-blob" aria-hidden="true"></span>
-  <span class="glow-blob glow-blob--2" aria-hidden="true"></span>
-  <div class="wrap reveal">
-    <h2>Venha ser mais um parceiro nosso</h2>
-    <p>Estamos prontos para atender a sua operação. Fale com o nosso time comercial e descubra como podemos ajudar.</p>
-    <div class="hero__actions"><a class="btn btn--lg" href="contato.html">Quero ser parceiro</a></div>
+<section class="cta">
+  <div class="shell">
+    <div class="cta__inner reveal">
+      <div>
+        <span class="mono-xs" style="color:var(--amber)">Próxima parada</span>
+        <h2>Venha ser mais um parceiro nosso</h2>
+        <p>Estamos prontos para atender a sua operação. Fale com o nosso time comercial e descubra como podemos ajudar.</p>
+        <div class="cta__actions"><a class="btn btn--lg" href="contato.html">Quero ser parceiro <span class="arr" aria-hidden="true">→</span></a></div>
+      </div>
+      <div class="cta__route" aria-hidden="true">
+        <div class="cta__line"></div>
+        <span class="mono-xs">Sua operação → Destino</span>
+      </div>
+    </div>
   </div>
 </section>
 </main>
 
-<footer class="site-footer">
-  <span class="glow-blob" aria-hidden="true"></span>
-  <div class="wrap">
-    <div class="footer-grid">
-      <div><img src="assets/img/logo-branco.png" alt="JB Cargo"><p class="fdesc">Armazenagem e distribuição de cargas dedicadas em toda a região metropolitana de São Paulo.</p></div>
-      <div><h4>Navegação</h4><ul>
-        <li><a href="index.html">Início</a></li><li><a href="quem-somos.html">Quem Somos</a></li><li><a href="diferenciais.html">Diferenciais</a></li><li><a href="servicos.html">Serviços</a></li><li><a href="experiencia.html">Experiência</a></li><li><a href="cobertura.html">Cobertura</a></li>
-      </ul></div>
-      <div><h4>Contato</h4><ul>
-        <li><a href="mailto:comercial@jbcargo.com.br">comercial@jbcargo.com.br</a></li><li><a href="tel:+5511947344475">+55 (11) 94734-4475</a></li><li><a href="mailto:administrativo@jbcargo.com.br">administrativo@jbcargo.com.br</a></li><li><a href="tel:+5511911502509">+55 (11) 91150-2509</a></li>
-      </ul></div>
+<footer class="footer">
+  <div class="footer__wm" aria-hidden="true">JB</div>
+  <div class="shell">
+    <div class="footer__grid">
+      <div class="footer__brand">
+        <img src="assets/img/logo-branco.png" alt="JB Cargo">
+        <p class="footer__desc">Armazenagem e distribuição de cargas dedicadas em toda a região metropolitana de São Paulo.</p>
+      </div>
+      <div>
+        <h4>Navegação</h4>
+        <ul>
+          <li><a href="index.html">Início</a></li>
+          <li><a href="quem-somos.html">Quem Somos</a></li>
+          <li><a href="diferenciais.html">Diferenciais</a></li>
+          <li><a href="servicos.html">Serviços</a></li>
+          <li><a href="experiencia.html">Experiência</a></li>
+          <li><a href="cobertura.html">Cobertura</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Contato</h4>
+        <ul>
+          <li><a href="mailto:comercial@jbcargo.com.br">comercial@jbcargo.com.br</a></li>
+          <li><a href="tel:+5511947344475">+55 (11) 94734-4475</a></li>
+          <li><a href="mailto:administrativo@jbcargo.com.br">administrativo@jbcargo.com.br</a></li>
+          <li><a href="tel:+5511911502509">+55 (11) 91150-2509</a></li>
+        </ul>
+      </div>
     </div>
-    <div class="footer-bottom"><span>© <span data-year>2026</span> JB Cargo — Armazenagem e Distribuição. Todos os direitos reservados.</span><span>Região Metropolitana de São Paulo</span></div>
+    <div class="footer__bottom">
+      <span class="mono-xs">© <span data-year>2026</span> JB Cargo — Armazenagem e Distribuição. Todos os direitos reservados.</span>
+      <span class="mono-xs dest">Destino · Região Metropolitana de São Paulo ●</span>
+    </div>
   </div>
 </footer>
 

@@ -1,32 +1,46 @@
-// ===== JB CARGO — interações =====
+// =====================================================================
+// JB CARGO — interações "MANIFESTO"
+// =====================================================================
 document.addEventListener('DOMContentLoaded', function () {
   var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
   // --- Menu mobile ---
   var nav = document.querySelector('.nav');
-  var toggle = document.querySelector('.nav__toggle');
-  if (toggle && nav) {
-    toggle.addEventListener('click', function () {
+  var burger = document.querySelector('.burger');
+  if (burger && nav) {
+    burger.addEventListener('click', function () {
       nav.classList.toggle('open');
-      toggle.setAttribute('aria-expanded', nav.classList.contains('open') ? 'true' : 'false');
+      burger.setAttribute('aria-expanded', nav.classList.contains('open') ? 'true' : 'false');
+      document.body.style.overflow = nav.classList.contains('open') ? 'hidden' : '';
     });
-    nav.querySelectorAll('.nav__links a').forEach(function (a) {
+    nav.querySelectorAll('.mainnav a').forEach(function (a) {
       a.addEventListener('click', function () {
         nav.classList.remove('open');
-        toggle.setAttribute('aria-expanded', 'false');
+        burger.setAttribute('aria-expanded', 'false');
+        document.body.style.overflow = '';
       });
     });
   }
 
-  // --- Sombra do cabeçalho ao rolar ---
-  var header = document.querySelector('.site-header');
-  if (header) {
-    var onScroll = function () {
-      header.classList.toggle('is-scrolled', window.scrollY > 8);
-    };
-    onScroll();
-    window.addEventListener('scroll', onScroll, { passive: true });
+  // --- Estado do cabeçalho + Linha de Rota (progresso de scroll) ---
+  var mast = document.querySelector('.masthead');
+  var route = document.querySelector('.route-progress');
+  var ticking = false;
+  function onScroll() {
+    if (ticking) return;
+    ticking = true;
+    requestAnimationFrame(function () {
+      var y = window.scrollY;
+      if (mast) mast.classList.toggle('is-scrolled', y > 8);
+      if (route && !reduceMotion) {
+        var max = document.documentElement.scrollHeight - window.innerHeight;
+        route.style.transform = 'scaleX(' + (max > 0 ? Math.min(y / max, 1) : 0) + ')';
+      }
+      ticking = false;
+    });
   }
+  onScroll();
+  window.addEventListener('scroll', onScroll, { passive: true });
 
   // --- Ano dinâmico no rodapé ---
   var y = document.querySelector('[data-year]');
@@ -43,6 +57,7 @@ document.addEventListener('DOMContentLoaded', function () {
           entry.target.classList.add('in');
           io.unobserve(entry.target);
           if (entry.target.hasAttribute('data-count')) animateCount(entry.target);
+          entry.target.querySelectorAll('[data-count]').forEach(animateCount);
         }
       });
     }, { threshold: 0.16, rootMargin: '0px 0px -8% 0px' });
@@ -51,8 +66,10 @@ document.addEventListener('DOMContentLoaded', function () {
 
   // --- Contadores de estatística ---
   function animateCount(el) {
+    if (el.dataset.counted) return;
     var target = parseFloat(el.getAttribute('data-count'));
-    if (isNaN(target) || reduceMotion) { return; }
+    if (isNaN(target) || reduceMotion) return;
+    el.dataset.counted = '1';
     var prefix = el.getAttribute('data-prefix') || '';
     var suffix = el.getAttribute('data-suffix') || '';
     var dur = 1200, start = performance.now();
@@ -64,7 +81,7 @@ document.addEventListener('DOMContentLoaded', function () {
     }
     requestAnimationFrame(tick);
   }
-  // Se IntersectionObserver não estiver disponível, garante o valor final
+  // Fallback: garante valor final sem IntersectionObserver
   if (reduceMotion || !('IntersectionObserver' in window)) {
     document.querySelectorAll('[data-count]').forEach(function (el) {
       var prefix = el.getAttribute('data-prefix') || '';
@@ -73,15 +90,21 @@ document.addEventListener('DOMContentLoaded', function () {
     });
   }
 
-  // --- Spotlight que segue o cursor nos cards de features ---
+  // --- Parallax sutil do hero (10%) ---
   if (!reduceMotion) {
-    document.querySelectorAll('.feature').forEach(function (card) {
-      card.addEventListener('pointermove', function (e) {
-        var r = card.getBoundingClientRect();
-        card.style.setProperty('--mx', (e.clientX - r.left) + 'px');
-        card.style.setProperty('--my', (e.clientY - r.top) + 'px');
-      });
-    });
+    var heroMedia = document.querySelector('.hero__media img, .pagehead__media img');
+    if (heroMedia) {
+      var hTicking = false;
+      window.addEventListener('scroll', function () {
+        if (hTicking) return;
+        hTicking = true;
+        requestAnimationFrame(function () {
+          var offset = window.scrollY * 0.1;
+          heroMedia.style.transform = 'translate3d(0,' + offset + 'px,0) scale(1.06)';
+          hTicking = false;
+        });
+      }, { passive: true });
+    }
   }
 
   // --- Formulário de contato → WhatsApp ---

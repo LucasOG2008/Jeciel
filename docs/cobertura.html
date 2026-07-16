@@ -8,102 +8,138 @@
 <link rel="icon" href="assets/img/slogo-color.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Lexend:wght@400;500;600;700;800&family=Source+Sans+3:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body>
 
-<header class="site-header">
-  <nav class="nav wrap" aria-label="Principal">
-    <a class="nav__logo" href="index.html" aria-label="JB Cargo — início"><img src="assets/img/logo-color.png" alt="JB Cargo"></a>
-    <button class="nav__toggle" aria-label="Abrir menu" aria-expanded="false" aria-controls="menu"><span></span><span></span><span></span></button>
-    <ul class="nav__links" id="menu">
-      <li><a href="index.html">Início</a></li>
-      <li><a href="quem-somos.html">Quem Somos</a></li>
-      <li><a href="diferenciais.html">Diferenciais</a></li>
-      <li><a href="servicos.html">Serviços</a></li>
-      <li><a href="experiencia.html">Experiência</a></li>
-      <li><a href="cobertura.html" class="is-active" aria-current="page">Cobertura</a></li>
+<div class="route-progress" aria-hidden="true"></div>
+
+<header class="masthead">
+  <div class="topbar" aria-hidden="true">
+    <div class="topbar__in shell">
+      <span class="mono-xs">Armazenagem e Distribuição · Região Metropolitana de São Paulo</span>
+      <span class="mono-xs"><a href="mailto:comercial@jbcargo.com.br">comercial@jbcargo.com.br</a> · <a href="tel:+5511947344475">+55 (11) 94734-4475</a></span>
+    </div>
+  </div>
+  <nav class="nav shell" aria-label="Principal">
+    <a class="brand" href="index.html" aria-label="JB Cargo — início"><img src="assets/img/logo-branco.png" alt="JB Cargo"></a>
+    <button class="burger" aria-label="Abrir menu" aria-expanded="false" aria-controls="menu"><span></span><span></span><span></span></button>
+    <ul class="mainnav" id="menu">
+      <li><a href="index.html" class="navlink">Início</a></li>
+      <li><a href="quem-somos.html" class="navlink">Quem Somos</a></li>
+      <li><a href="diferenciais.html" class="navlink">Diferenciais</a></li>
+      <li><a href="servicos.html" class="navlink">Serviços</a></li>
+      <li><a href="experiencia.html" class="navlink">Experiência</a></li>
+      <li><a href="cobertura.html" class="navlink is-active" aria-current="page">Cobertura</a></li>
       <li class="nav__cta"><a class="btn" href="contato.html">Solicitar orçamento</a></li>
     </ul>
   </nav>
 </header>
 
 <main>
-<section class="hero hero--sub">
-  <div class="hero__bg"><img src="assets/img/regiao-sp.jpg" alt="Ponte estaiada em São Paulo"></div>
-  <span class="glow-blob" aria-hidden="true"></span>
-  <div class="grid-bg" aria-hidden="true"></div>
-  <div class="wrap">
-    <div class="hero__inner">
-      <div class="breadcrumb"><a href="index.html">Início</a> <span>/</span> Cobertura</div>
-      <h1>Atendemos toda a <span>Grande São Paulo</span></h1>
-      <p>Com flexibilidade e personalização, levamos a sua carga a toda a região metropolitana de São Paulo.</p>
-    </div>
+<section class="pagehead">
+  <div class="pagehead__media"><img src="assets/img/regiao-sp.jpg" alt="Ponte estaiada em São Paulo" fetchpriority="high"></div>
+  <div class="pagehead__tint" aria-hidden="true"></div>
+  <div class="pagehead__inner shell">
+    <div class="crumb mono-xs"><a href="index.html">Início</a> <span class="sep" aria-hidden="true">/</span> <span>Cobertura</span></div>
+    <h1>Atendemos toda a <em>Grande São Paulo</em></h1>
+    <p class="pagehead__lead">Com flexibilidade e personalização, levamos a sua carga a toda a região metropolitana de São Paulo.</p>
+    <div class="pagehead__rule" aria-hidden="true"></div>
   </div>
 </section>
 
+<!-- Carta de rotas -->
 <section class="section">
-  <div class="wrap grid grid--2">
+  <div class="shell split split--rev">
     <div class="reveal">
-      <span class="badge">Área de atuação</span>
-      <h2 style="font-size:clamp(1.9rem,4vw,2.7rem)">Cobertura regional completa</h2>
-      <p class="lead" style="margin-top:16px">Atendemos <strong>toda a região metropolitana de São Paulo</strong> com flexibilidade e personalização, adaptando rotas e horários à necessidade de cada cliente.</p>
-      <ul class="checks">
-        <li><span class="ck"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6L9 17l-5-5"/></svg></span> Capital e cidades da Grande São Paulo</li>
-        <li><span class="ck"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6L9 17l-5-5"/></svg></span> Rotas flexíveis e personalizadas</li>
-        <li><span class="ck"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6L9 17l-5-5"/></svg></span> Programação de entregas conforme a sua operação</li>
+      <div class="eyebrow"><span class="dot" aria-hidden="true"></span><span class="mono">Carta de rotas · Área de atuação</span></div>
+      <h2 class="h2">Cobertura regional completa</h2>
+      <p class="lead" style="margin-top:24px">Atendemos <strong>toda a região metropolitana de São Paulo</strong> com flexibilidade e personalização, adaptando rotas e horários à necessidade de cada cliente.</p>
+      <ul class="ticks" style="margin-top:20px">
+        <li><span class="tk"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg></span> Capital e cidades da Grande São Paulo</li>
+        <li><span class="tk"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg></span> Rotas flexíveis e personalizadas</li>
+        <li><span class="tk"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg></span> Programação de entregas conforme a sua operação</li>
       </ul>
-      <p style="margin-top:30px"><a class="btn btn--navy" href="contato.html">Consultar minha região</a></p>
+      <p style="margin-top:36px"><a class="btn" href="contato.html">Consultar minha região <span class="arr" aria-hidden="true">→</span></a></p>
     </div>
-    <div class="mapa reveal" data-delay="1">
+    <div class="map reveal" data-delay="1">
       <img src="assets/img/mapa-sp.png" alt="Mapa do estado de São Paulo destacando a área de atendimento" loading="lazy">
-      <span class="pin" style="left:33%;top:38%"></span>
-      <span class="pin" style="left:46%;top:30%"></span>
-      <span class="pin" style="left:60%;top:40%"></span>
-      <span class="pin" style="left:50%;top:52%"></span>
-      <span class="pin" style="left:64%;top:60%"></span>
-      <span class="pin" style="left:78%;top:52%"></span>
-      <span class="pin" style="left:55%;top:70%"></span>
+      <span class="map__pin" style="left:33%;top:38%" aria-hidden="true"><i></i></span>
+      <span class="map__pin" style="left:46%;top:30%" aria-hidden="true"><i></i></span>
+      <span class="map__pin" style="left:60%;top:40%" aria-hidden="true"><i></i></span>
+      <span class="map__pin" style="left:50%;top:52%" aria-hidden="true"><i></i></span>
+      <span class="map__pin" style="left:64%;top:60%" aria-hidden="true"><i></i></span>
+      <span class="map__pin" style="left:78%;top:52%" aria-hidden="true"><i></i></span>
+      <span class="map__pin" style="left:55%;top:70%" aria-hidden="true"><i></i></span>
+      <span class="map__tag mono-xs" aria-hidden="true">Rotas ativas · RMSP</span>
     </div>
   </div>
 </section>
 
-<section class="section section--tint">
-  <div class="wrap">
-    <div class="stats reveal">
-      <div><div class="num" data-count="39">39</div><div class="lbl">municípios na Grande São Paulo</div></div>
-      <div><div class="num">RMSP</div><div class="lbl">principal polo logístico do país</div></div>
-      <div><div class="num" data-count="100" data-suffix="%">100%</div><div class="lbl">flexibilidade de rotas</div></div>
-      <div><div class="num" data-count="20" data-prefix="+">+20</div><div class="lbl">anos conhecendo a região</div></div>
+<!-- Métricas da região -->
+<section class="section" style="padding-top:0">
+  <div class="shell">
+    <div class="metrics reveal">
+      <div class="metric"><div class="metric__num" data-count="39">39</div><div class="metric__label">municípios na Grande São Paulo</div></div>
+      <div class="metric"><div class="metric__num">RMSP</div><div class="metric__label">principal polo logístico do país</div></div>
+      <div class="metric"><div class="metric__num" data-count="100" data-suffix="%">100%</div><div class="metric__label">flexibilidade de rotas</div></div>
+      <div class="metric"><div class="metric__num" data-count="20" data-prefix="+">+20</div><div class="metric__label">anos conhecendo a região</div></div>
     </div>
   </div>
 </section>
 
-<section class="cta-band">
-  <span class="glow-blob" aria-hidden="true"></span>
-  <span class="glow-blob glow-blob--2" aria-hidden="true"></span>
-  <div class="wrap reveal">
-    <h2>Sua carga onde ela precisa estar</h2>
-    <p>Com flexibilidade e personalização em toda a região metropolitana de São Paulo.</p>
-    <div class="hero__actions"><a class="btn btn--lg" href="contato.html">Falar com o comercial</a></div>
+<section class="cta">
+  <div class="shell">
+    <div class="cta__inner reveal">
+      <div>
+        <span class="mono-xs" style="color:var(--amber)">Próxima parada</span>
+        <h2>Sua carga onde ela precisa estar</h2>
+        <p>Com flexibilidade e personalização em toda a região metropolitana de São Paulo.</p>
+        <div class="cta__actions"><a class="btn btn--lg" href="contato.html">Falar com o comercial <span class="arr" aria-hidden="true">→</span></a></div>
+      </div>
+      <div class="cta__route" aria-hidden="true">
+        <div class="cta__line"></div>
+        <span class="mono-xs">Sua operação → Destino</span>
+      </div>
+    </div>
   </div>
 </section>
 </main>
 
-<footer class="site-footer">
-  <span class="glow-blob" aria-hidden="true"></span>
-  <div class="wrap">
-    <div class="footer-grid">
-      <div><img src="assets/img/logo-branco.png" alt="JB Cargo"><p class="fdesc">Armazenagem e distribuição de cargas dedicadas em toda a região metropolitana de São Paulo.</p></div>
-      <div><h4>Navegação</h4><ul>
-        <li><a href="index.html">Início</a></li><li><a href="quem-somos.html">Quem Somos</a></li><li><a href="diferenciais.html">Diferenciais</a></li><li><a href="servicos.html">Serviços</a></li><li><a href="experiencia.html">Experiência</a></li><li><a href="cobertura.html">Cobertura</a></li>
-      </ul></div>
-      <div><h4>Contato</h4><ul>
-        <li><a href="mailto:comercial@jbcargo.com.br">comercial@jbcargo.com.br</a></li><li><a href="tel:+5511947344475">+55 (11) 94734-4475</a></li><li><a href="mailto:administrativo@jbcargo.com.br">administrativo@jbcargo.com.br</a></li><li><a href="tel:+5511911502509">+55 (11) 91150-2509</a></li>
-      </ul></div>
+<footer class="footer">
+  <div class="footer__wm" aria-hidden="true">JB</div>
+  <div class="shell">
+    <div class="footer__grid">
+      <div class="footer__brand">
+        <img src="assets/img/logo-branco.png" alt="JB Cargo">
+        <p class="footer__desc">Armazenagem e distribuição de cargas dedicadas em toda a região metropolitana de São Paulo.</p>
+      </div>
+      <div>
+        <h4>Navegação</h4>
+        <ul>
+          <li><a href="index.html">Início</a></li>
+          <li><a href="quem-somos.html">Quem Somos</a></li>
+          <li><a href="diferenciais.html">Diferenciais</a></li>
+          <li><a href="servicos.html">Serviços</a></li>
+          <li><a href="experiencia.html">Experiência</a></li>
+          <li><a href="cobertura.html">Cobertura</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Contato</h4>
+        <ul>
+          <li><a href="mailto:comercial@jbcargo.com.br">comercial@jbcargo.com.br</a></li>
+          <li><a href="tel:+5511947344475">+55 (11) 94734-4475</a></li>
+          <li><a href="mailto:administrativo@jbcargo.com.br">administrativo@jbcargo.com.br</a></li>
+          <li><a href="tel:+5511911502509">+55 (11) 91150-2509</a></li>
+        </ul>
+      </div>
     </div>
-    <div class="footer-bottom"><span>© <span data-year>2026</span> JB Cargo — Armazenagem e Distribuição. Todos os direitos reservados.</span><span>Região Metropolitana de São Paulo</span></div>
+    <div class="footer__bottom">
+      <span class="mono-xs">© <span data-year>2026</span> JB Cargo — Armazenagem e Distribuição. Todos os direitos reservados.</span>
+      <span class="mono-xs dest">Destino · Região Metropolitana de São Paulo ●</span>
+    </div>
   </div>
 </footer>
 
