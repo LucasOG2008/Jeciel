@@ -99,8 +99,8 @@ document.addEventListener('DOMContentLoaded', function () {
         if (hTicking) return;
         hTicking = true;
         requestAnimationFrame(function () {
-          var offset = window.scrollY * 0.1;
-          heroMedia.style.transform = 'translate3d(0,' + offset + 'px,0) scale(1.06)';
+          var offset = window.scrollY * 0.05;
+          heroMedia.style.transform = 'translate3d(0,' + offset + 'px,0) scale(1.03)';
           hTicking = false;
         });
       }, { passive: true });
