@@ -153,7 +153,17 @@ h1 em,h2 em{font-style:normal;color:var(--amber)}
 .topbar__in a:hover{color:var(--paper)}
 
 .nav{display:flex;align-items:center;justify-content:space-between;gap:24px;padding-top:18px;padding-bottom:18px}
+.brand{display:inline-flex;align-items:center;gap:11px;text-decoration:none}
 .brand img{height:50px;width:auto;filter:drop-shadow(0 2px 8px rgba(0,0,0,.5))}
+.brand__wm{
+  font-family:"IBM Plex Sans Condensed",var(--f-disp),sans-serif;
+  font-weight:700;font-size:1.85rem;line-height:1;letter-spacing:.005em;white-space:nowrap;
+  filter:drop-shadow(0 1px 6px rgba(0,0,0,.35));
+}
+.brand__wm .wm-jb{color:#ef8f2e}
+.brand__wm .wm-cargo{color:#273576}
+/* ao rolar, o cabeçalho fica azul quase preto — clareia o "CARGO" p/ não sumir */
+.masthead.is-scrolled .brand__wm .wm-cargo{color:#9aa4d4}
 .mainnav{display:flex;align-items:center;gap:clamp(18px,2.4vw,34px)}
 .navlink{
   color:rgba(245,243,238,.86);text-decoration:none;font-size:.9375rem;font-weight:600;
