@@ -142,47 +142,46 @@ h1 em,h2 em{font-style:normal;color:var(--amber)}
 /* =====================================================================
    5. CABEÇALHO
    ===================================================================== */
-.masthead{position:fixed;top:0;left:0;right:0;z-index:100;transition:background .35s var(--ease),box-shadow .35s var(--ease)}
-.masthead.is-scrolled{background:var(--ink-900);box-shadow:0 1px 0 var(--hl-d)}
+/* cabeçalho no mesmo tom de branco da página; translúcido no topo, sólido ao rolar */
+.masthead{position:fixed;top:0;left:0;right:0;z-index:100;background:var(--paper);box-shadow:0 1px 0 rgba(11,16,32,.08);transition:background .35s var(--ease),box-shadow .35s var(--ease)}
+/* no topo: barra translúcida com desfoque, deixando a foto do hero transparecer */
+.masthead:not(.is-scrolled){background:rgba(245,243,238,.25);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px)}
+.masthead.is-scrolled{box-shadow:0 6px 20px rgba(11,16,32,.10)}
 
-.topbar{border-bottom:1px solid var(--hl-d);overflow:hidden;max-height:60px;transition:max-height .35s var(--ease),opacity .3s}
+.topbar{border-bottom:1px solid rgba(11,16,32,.10);overflow:hidden;max-height:60px;transition:max-height .35s var(--ease),opacity .3s}
 .masthead.is-scrolled .topbar{max-height:0;opacity:0;border-bottom-color:transparent}
-.topbar__in{display:flex;justify-content:space-between;align-items:center;gap:16px;padding-top:10px;padding-bottom:10px}
-.topbar__in .mono-xs{color:var(--tx-inv-dim)}
-.topbar__in a{text-decoration:none;transition:color .25s}
-.topbar__in a:hover{color:var(--paper)}
+.topbar__in{display:flex;justify-content:space-between;align-items:center;gap:16px;padding-top:6px;padding-bottom:6px}
+.topbar__in .mono-xs{color:#000}
+.topbar__in a{text-decoration:none;transition:color .25s;color:#000}
+.topbar__in a:hover{color:var(--amber)}
 
-.nav{display:flex;align-items:center;justify-content:space-between;gap:24px;padding-top:18px;padding-bottom:18px}
-.brand{display:inline-flex;align-items:center;gap:11px;text-decoration:none}
-.brand img{height:50px;width:auto;filter:drop-shadow(0 2px 8px rgba(0,0,0,.5))}
+.nav{display:flex;align-items:center;justify-content:space-between;gap:24px;padding-top:11px;padding-bottom:11px}
+.brand{display:inline-flex;align-items:center;gap:10px;text-decoration:none}
+/* logo sobre cabeçalho branco: sem brilho, cores originais */
+.brand img{height:46px;width:auto}
 .brand__wm{
   font-family:"IBM Plex Sans Condensed",var(--f-disp),sans-serif;
-  font-weight:700;font-size:1.85rem;line-height:1;letter-spacing:.005em;white-space:nowrap;
-  filter:drop-shadow(0 1px 6px rgba(0,0,0,.35));
+  font-weight:700;font-size:1.65rem;line-height:1;letter-spacing:.005em;white-space:nowrap;
 }
 .brand__wm .wm-jb{color:#ef8f2e}
 .brand__wm .wm-cargo{color:#273576}
-/* ao rolar, o cabeçalho fica azul quase preto — clareia o "CARGO" p/ não sumir */
-.masthead.is-scrolled .brand__wm .wm-cargo{color:#9aa4d4}
 .mainnav{display:flex;align-items:center;gap:clamp(18px,2.4vw,34px)}
 .navlink{
-  color:rgba(245,243,238,.86);text-decoration:none;font-size:.9375rem;font-weight:600;
+  color:var(--ink);text-decoration:none;font-size:.9375rem;font-weight:600;
   position:relative;padding-bottom:6px;transition:color .25s;
-  text-shadow:0 1px 10px rgba(0,0,0,.5);
 }
-/* sobre a foto (topo não rolado) o texto do menu/barra/breadcrumb ganha sombra p/ legibilidade */
-.masthead:not(.is-scrolled) .topbar__in .mono-xs,
-.masthead:not(.is-scrolled) .topbar__in a{text-shadow:0 1px 10px rgba(0,0,0,.55)}
+/* breadcrumb fica sobre a foto escura do pagehead — mantém sombra p/ legibilidade */
 .crumb{text-shadow:0 1px 10px rgba(0,0,0,.5)}
-.masthead.is-scrolled .navlink{text-shadow:none}
-.navlink:hover{color:var(--paper)}
-.navlink.is-active{color:var(--paper)}
+.navlink:hover{color:var(--amber)}
+.navlink.is-active{color:var(--amber)}
 .navlink.is-active::after{content:'';position:absolute;left:0;bottom:0;width:22px;height:2px;background:var(--amber);border-radius:2px}
 .navlink.is-active::before{content:'';position:absolute;left:26px;bottom:-1px;width:4px;height:4px;border-radius:50%;background:var(--amber)}
 .nav__cta .btn{padding:12px 22px}
 
 .burger{display:none;flex-direction:column;gap:5px;padding:10px;z-index:130}
-.burger span{width:24px;height:2px;background:var(--paper);border-radius:2px;transition:transform .3s var(--ease),opacity .3s}
+.burger span{width:24px;height:2px;background:var(--ink);border-radius:2px;transition:transform .3s var(--ease),opacity .3s,background .3s}
+/* menu aberto (overlay escuro): barras do ícone ficam claras */
+.nav.open .burger span{background:var(--paper)}
 
 /* Menu mobile — painel de despacho em tela cheia */
 @media (max-width:960px){
@@ -193,7 +192,8 @@ h1 em,h2 em{font-style:normal;color:var(--amber)}
     opacity:0;visibility:hidden;transition:opacity .35s var(--ease),visibility .35s;
   }
   .nav.open .mainnav{opacity:1;visibility:visible}
-  .navlink{font-family:var(--f-disp);font-size:2rem;font-weight:600;padding:10px 0}
+  .navlink{font-family:var(--f-disp);font-size:2rem;font-weight:600;padding:10px 0;color:var(--paper)}
+  .navlink:hover,.navlink.is-active{color:var(--amber)}
   .navlink.is-active::after{width:34px;bottom:6px}
   .navlink.is-active::before{left:38px;bottom:5px}
   .nav__cta{margin-top:24px}
@@ -218,16 +218,18 @@ h1 em,h2 em{font-style:normal;color:var(--amber)}
   linear-gradient(to bottom, rgba(8,12,25,.66) 0%, rgba(8,12,25,0) 30%),
   linear-gradient(to top, rgba(8,12,25,.9) 0%, rgba(8,12,25,.34) 28%, rgba(8,12,25,0) 56%)}
 .hero__body{position:relative;width:100%;padding-top:clamp(150px,20vh,210px)}
+/* título e lead puxados até ~100px da borda esquerda real da tela (qualquer largura) */
+.hero{--bleed-left:calc(200px - var(--gutter) - max(0px, (100vw - var(--shell)) / 2))}
 .hero__title{
-  margin:34px 0 0;color:var(--paper);font-weight:700;line-height:.96;
+  margin:34px 0 0 var(--bleed-left);color:var(--paper);font-weight:700;line-height:.96;
   font-size:var(--fs-display);
   text-shadow:0 2px 22px rgba(0,0,0,.5);
 }
-.hero__title .l2{display:block;padding-left:1.2em}
-.hero__lead{margin:30px 0 0;max-width:540px;font-size:var(--fs-lead);color:rgba(245,243,238,.9);text-shadow:0 1px 12px rgba(0,0,0,.55)}
+.hero__title .l2{display:block;padding-left:0}
+.hero__lead{margin:30px 0 0 var(--bleed-left);max-width:540px;font-size:var(--fs-lead);color:rgba(245,243,238,.9);text-shadow:0 1px 12px rgba(0,0,0,.55)}
 
 /* Faixa de operação — o documento ancorado na base */
-.ops{position:relative;margin-top:clamp(40px,7vh,64px);border-top:1px solid var(--hl-d);background:rgba(8,12,25,.72);backdrop-filter:blur(6px)}
+.ops{position:relative;margin-top:clamp(72px,11vh,110px);border-top:1px solid var(--hl-d);background:rgba(8,12,25,.72);backdrop-filter:blur(6px)}
 .ops__in{display:grid;grid-template-columns:auto 1fr 1fr 1fr;max-width:var(--shell);margin:0 auto}
 .ops__cell{padding:26px 38px;border-right:1px solid var(--hl-d);display:flex;flex-direction:column;justify-content:center}
 .ops__cell--cta{flex-direction:row;align-items:center;gap:14px;padding-left:var(--gutter)}
