@@ -107,20 +107,33 @@ document.addEventListener('DOMContentLoaded', function () {
     }
   }
 
-  // --- Formulário de contato → WhatsApp ---
+  // --- Formulário de contato → e-mail (mailto) ---
   var form = document.querySelector('#contato-form');
   if (form) {
+    var DESTINO = 'comercial@jbcargo.com.br';
+
     form.addEventListener('submit', function (e) {
       e.preventDefault();
-      var nome = (form.nome && form.nome.value) || '';
-      var email = (form.email && form.email.value) || '';
-      var tel = (form.telefone && form.telefone.value) || '';
-      var msg = (form.mensagem && form.mensagem.value) || '';
-      var texto = 'Olá! Meu nome é ' + nome + '.';
-      if (msg) texto += ' ' + msg;
-      if (email) texto += '\nE-mail: ' + email;
-      if (tel) texto += '\nTelefone: ' + tel;
-      window.location.href = 'https://wa.me/5511947344475?text=' + encodeURIComponent(texto);
+
+      var nome = ((form.nome && form.nome.value) || '').trim();
+      var email = ((form.email && form.email.value) || '').trim();
+      var telefone = ((form.telefone && form.telefone.value) || '').trim();
+      var mensagem = ((form.mensagem && form.mensagem.value) || '').trim();
+
+      var assunto = 'Solicitação de orçamento — ' + (nome || 'Site JB Cargo');
+
+      var corpo =
+        'Nome: ' + nome + '\n' +
+        'E-mail: ' + email + '\n' +
+        'Telefone: ' + telefone + '\n\n' +
+        'Mensagem:\n' + mensagem + '\n';
+
+      // mailto: abre o programa de e-mail padrão (Gmail, Outlook, app do celular…)
+      var link = 'mailto:' + DESTINO
+        + '?subject=' + encodeURIComponent(assunto)
+        + '&body=' + encodeURIComponent(corpo);
+
+      window.location.href = link;
     });
   }
 });
