@@ -36,7 +36,7 @@
   --f-text:'Manrope',sans-serif;
   --f-mono:'JetBrains Mono',ui-monospace,'Cascadia Mono',Consolas,monospace;
 
-  --fs-display:clamp(2.9rem,7.2vw,6.5rem);
+  --fs-display:clamp(2.35rem,7vw,6.5rem);
   --fs-h1:clamp(2.4rem,5.5vw,4.25rem);
   --fs-h2:clamp(2rem,3.6vw,3.125rem);
   --fs-h3:1.375rem;
@@ -216,10 +216,14 @@ h1 em,h2 em{font-style:normal;color:var(--amber)}
 /* gradiente no topo (menu/logo) e no rodapé (texto) — a foto fica em cor cheia no meio */
 .hero__tint{position:absolute;inset:0;pointer-events:none;background:
   linear-gradient(to bottom, rgba(8,12,25,.66) 0%, rgba(8,12,25,0) 30%),
-  linear-gradient(to top, rgba(8,12,25,.9) 0%, rgba(8,12,25,.34) 28%, rgba(8,12,25,0) 56%)}
-.hero__body{position:relative;width:100%;padding-top:clamp(150px,20vh,210px)}
-/* título e lead puxados até ~100px da borda esquerda real da tela (qualquer largura) */
-.hero{--bleed-left:calc(200px - var(--gutter) - max(0px, (100vw - var(--shell)) / 2))}
+  linear-gradient(to top, rgba(8,12,25,.9) 0%, rgba(8,12,25,.34) 28%, rgba(8,12,25,0) 56%),
+  linear-gradient(to right, rgba(8,12,25,.72) 0%, rgba(8,12,25,.34) 32%, rgba(8,12,25,0) 62%)}
+.hero__body{position:relative;width:100%;padding-top:clamp(120px,20vh,210px)}
+/* título e lead puxados até ~200px da borda esquerda real da tela em telas largas.
+   min(0px, …) garante que NUNCA vire margem positiva: abaixo do shell (1360px) o
+   valor seria positivo e empurraria o texto para a direita — por isso é travado em 0,
+   alinhando o conteúdo ao gutter em notebook, tablet e celular. */
+.hero{--bleed-left:min(0px, calc(200px - var(--gutter) - max(0px, (100vw - var(--shell)) / 2)))}
 .hero__title{
   margin:34px 0 0 var(--bleed-left);color:var(--paper);font-weight:700;line-height:.96;
   font-size:var(--fs-display);
@@ -243,8 +247,24 @@ h1 em,h2 em{font-style:normal;color:var(--amber)}
 }
 @media (max-width:640px){
   .ops__in{grid-template-columns:1fr}
-  .ops__cell{border-right:none;border-bottom:1px solid var(--hl-d);padding:20px var(--gutter)}
+  .ops__cell{border-right:none;border-bottom:1px solid var(--hl-d);padding:16px var(--gutter)}
   .ops__cell:last-child{border-bottom:none}
+  .ops__cell--cta{gap:12px}
+  .ops__cell--cta .btn{flex:1 1 auto;min-width:0}
+}
+
+/* Hero — equilíbrio vertical e proporções em telas menores.
+   Mantém a identidade (imagem + tint + barra de operação), apenas evita
+   que o topo fique alto demais e que o conteúdo empurre a dobra. */
+@media (max-width:768px){
+  .hero{min-height:76vh}
+  .hero__body{padding-top:clamp(104px,15vh,150px)}
+  .ops{margin-top:clamp(40px,7vh,72px)}
+}
+@media (max-width:480px){
+  .hero{min-height:72vh}
+  .hero__title{margin-top:22px}
+  .hero__lead{margin-top:20px}
 }
 
 /* =====================================================================
